@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import { Component } from 'react'
 import './App.css';
+import loadable from '@loadable/component'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+
+  state = {
+    PageName: 'Dashboard'
+  }
+
+  getQueryString(name) {
+    const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    const urlObj = window.location;
+    var r = urlObj.href.indexOf('#') > -1 ? urlObj.hash.split("?")[1].match(reg) : urlObj.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+  }
+
+
+  componentDidMount() {
+    const pageName = this.getQueryString('PageName')
+    this.setState({
+      PageName: pageName
+    })
+  }
+
+  render() {
+
+    const Page = loadable(() => import('./components/' + (this.state.PageName || 'ControlPanel')))
+    return (
+      <Page />
+    )
+  }
 }
-
-export default App;

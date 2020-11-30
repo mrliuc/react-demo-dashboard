@@ -1,0 +1,1 @@
+[{"WidgetName":"Red","DashboardName":"aa","Name":"1","GroupName":"2","DataURL":"http://127.0.0.1:10001/dataSource1","Top":85,"Left":191},{"WidgetName":"Red","DashboardName":"bb","Name":"2","GroupName":"2","DataURL":"http://127.0.0.1:10001/dataSource1"},{"WidgetName":"Blue","DashboardName":"bb","Name":"1","GroupName":"22","DataURL":"http://127.0.0.1:10001/dataSource2"}]

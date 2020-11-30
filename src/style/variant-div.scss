@@ -1,0 +1,26 @@
+.variant-div{
+  border: 1px solid red ;
+  left:0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+
+  .title{
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .content{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+    }
+
+    div{
+      display: inline-block;
+    }
+  
+}
